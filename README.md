@@ -42,7 +42,7 @@ datetime	score	is_last
 5秒間隔でTSVの更新を確認します。
 
 #バージョン
-v1.0
+v1.01
 
 # 作者
 @lt900ed
