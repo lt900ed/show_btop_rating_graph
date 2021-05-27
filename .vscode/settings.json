@@ -1,0 +1,22 @@
+{
+    "files.autoSave": "afterDelay",
+    "files.autoSaveDelay": 5000,
+    "editor.renderWhitespace": "all",
+    "editor.detectIndentation": false,
+    "editor.insertSpaces": true,
+    "[css]": {
+        "editor.tabSize": 2
+    },
+    "[html]": {
+        "editor.tabSize": 2
+    },
+    "[javascript]": {
+        "editor.tabSize": 2
+    },
+    "[python]": {
+        "editor.tabSize": 4
+    },
+    "git-graph.referenceLabels.combineLocalAndRemoteBranchLabels": false,
+    "files.trimTrailingWhitespace": true,
+    "files.eol": "\n"
+}

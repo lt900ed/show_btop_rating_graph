@@ -1,0 +1,59 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+html{
+  font-size: 4.2vw;
+  color: white;
+}
+body{
+  z-index: 1;
+  font-family: "Helvetica Neue",
+    Arial,
+    "Hiragino Kaku Gothic ProN",
+    "Hiragino Sans",
+    Meiryo,
+    sans-serif;
+  width: 100%;
+  background-color: #444;
+}
+h2{
+  font-size: 1.2rem;
+}
+.score{
+  font-size: 2.2rem;
+  font-weight: bold;
+  text-align: center;
+}
+#wrapper{
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+}
+#main-content{
+  /* margin-right: .5rem; */
+  height: 100vh;
+  flex: 0 1 70%;
+}
+#sub-content{
+  /* margin-left: .5rem; */
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  flex: 0 1 30%;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.chart-container{
+  position: relative;
+  height:40vh;
+  width:70vw;
+}
+.plus-clr{
+  color: #00F2FF;
+}
+.minus-clr{
+  color: #F15628;
+}

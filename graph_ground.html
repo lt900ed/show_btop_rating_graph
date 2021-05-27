@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>Today Ground Rating Shift</title>
+  <link rel="stylesheet" href="./css/show_graph.css" type="text/css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@3.3.0/dist/chart.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="./js/show_graph.js"></script>
+  <script>
+    $(document).ready(function () {
+      window.val = [0];
+      var ctx = document.getElementById("myLineChart");
+      setInterval(get_tsv_data, 5000, 'data/rating_log_ground.tsv', ctx, true);
+    });
+  </script>
+</head>
+<body>
+  <div id="wrapper">
+    <div id="main-content">
+      <h2>Today Ground Rating Shift</h2>
+      <div class="chart-container">
+        <canvas id="myLineChart" width="40" height="28"></canvas>
+      </div>
+    </div>
+    <div id="sub-content">
+      <div class="card">
+        <h2>Today Balance</h2>
+        <div id="today-balance-score" class="score">±0</div>
+      </div>
+      <div class="card">
+        <h2>Now Rating</h2>
+        <div id="now-rating-score" class="score">----</div>
+        <div id="now-rating-desc" class="score">--</div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
