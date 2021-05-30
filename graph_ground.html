@@ -11,7 +11,8 @@
     $(document).ready(function () {
       window.val = [0];
       var ctx = document.getElementById("myLineChart");
-      setInterval(get_tsv_data, 5000, 'data/rating_log_ground.tsv', ctx, true);
+      get_csv_data('data/rating_log_ground.csv', ctx, true);
+      setInterval(get_csv_data, 5000, 'data/rating_log_ground.csv', ctx, true);
     });
   </script>
 </head>

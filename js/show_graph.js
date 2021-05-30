@@ -75,14 +75,14 @@ function regularly_update(ctx, is_ground) {
   add_graph(ctx, is_ground, window.val);
 }
 
-function get_tsv_data(dataPath, ctx, is_ground) {
+function get_csv_data(dataPath, ctx, is_ground) {
   $.ajax({
     url: dataPath,
     type: 'GET',
     dataType: 'text',
     timeout: 5000,
     success:function(res) {
-      var arr = tsv2array(res);
+      var arr = csv2array(res);
       var today_balance_arr = get_today_val(arr);
       var today_balance_score = today_balance_arr[today_balance_arr.length - 1]
       var now_rating_score = arr[arr.length - 1][1]
@@ -154,7 +154,7 @@ function change_score(today_balance_score, now_rating_score) {
 }
 
 function get_today_val(arr) {
-  var index = -1
+  var index = 0
   arr.forEach(function(row, i) {
     if (row[2] == 1) {
       index = i
@@ -165,14 +165,14 @@ function get_today_val(arr) {
   return today_balance_arr
 }
 
-function tsv2array(data) {
+function csv2array(data) {
   const dataArray = [];
   const dataString = data.split('\r\n');
   var tmp_arr;
-  for (let i = 0; i < dataString.length; i++) {
-    tmp_arr = dataString[i].split('\t');
+  for (let i = 1; i < dataString.length; i++) {
+    tmp_arr = dataString[i].split(',');
     if (tmp_arr.length == 3) {
-      dataArray[i] = dataString[i].split('\t');
+      dataArray[i - 1] = tmp_arr;
     }
   }
   return dataArray;
