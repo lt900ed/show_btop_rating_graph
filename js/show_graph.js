@@ -9,9 +9,10 @@ function add_graph(ctx, is_ground, val) {
   } else {
     border_color = "rgba(112, 176, 224)"
   }
-
+  var vw = $(window).width()
   var label_num = [...Array(val.length).keys()];
   var zeros = [...Array(val.length).fill(0)];
+
   window.myChart = new Chart(ctx, {
     type: 'line',
     data: {
@@ -22,7 +23,7 @@ function add_graph(ctx, is_ground, val) {
           data: val,
           borderColor: border_color,
           backgroundColor: "rgba(0,0,0,0)",
-          borderWidth: 6
+          borderWidth: Math.floor(vw / 50),
         },
         {
           label: 'zero line',
@@ -49,9 +50,15 @@ function add_graph(ctx, is_ground, val) {
           ticks: {
             color: "rgba(255, 255, 255 ,1)",
             font: {
-              size: 20
+              size: Math.floor(vw / 20)
             }
           }
+        }
+      },
+      elements: {
+        point: {
+          radius: Math.floor(vw / 90),
+          backgroundColor: border_color
         }
       },
       plugins: {
