@@ -161,8 +161,9 @@ function change_score(today_balance_score, now_rating_score) {
 
 function get_today_val(arr) {
   var index = 0
+  var btop_today = get_btop_date(new Date())
   arr.forEach(function(row, i) {
-    if (row[2] == 1) {
+    if (str2date_hmiymd(row[0]) < btop_today) {
       index = i
     }
   });
@@ -182,4 +183,25 @@ function csv2array(data) {
     }
   }
   return dataArray;
+}
+
+function get_btop_date(date) {
+  date_start = date
+  if (date.getHours() < 5) {
+    date_start.setDate(date.getDate() - 1)
+  }
+  return new Date(date_start.getFullYear(), date_start.getMonth(), date_start.getDate(), 5, 0, 0)
+}
+
+function str2date_hmiymd(txt) {
+  i_colon = txt.indexOf(':')
+  i_space = txt.indexOf(' ')
+  i_slash_1 = txt.indexOf('/')
+  i_slash_2 = txt.indexOf('/', i_slash_1 + 1)
+  hour = Number(txt.substr(0, i_colon))
+  minute = Number(txt.substr(i_colon + 1, i_space - i_colon - 1))
+  year = Number(txt.substr(i_space + 1, i_slash_1 - i_space - 1))
+  month = Number(txt.substr(i_slash_1 + 1, i_slash_2 - i_slash_1 - 1))
+  day = Number(txt.substr(i_slash_2 + 1))
+  return new Date(year, month - 1, day, hour, minute, 0)
 }
